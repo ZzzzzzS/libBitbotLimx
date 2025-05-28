@@ -8,7 +8,7 @@
 namespace bitbot
 {
     LimxJoint::LimxJoint(const pugi::xml_node& joint_node)
-        :LimxDevice(joint_node),
+        :LimxAbstractJoint(joint_node),
         JointState__(0, 0, 0, 0),
         JointCmd__(0, 0, 0, 0, 0, 0, 0),
         JointMode__(LimxJointMode::CST),

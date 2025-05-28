@@ -10,7 +10,12 @@ namespace bitbot
     {
         friend class LimxBus;
     public:
-        LimxAbstractJoint(const pugi::xml_node& joint_node) :LimxDevice(joint_node) {}
+        LimxAbstractJoint(const pugi::xml_node& joint_node) :LimxDevice(joint_node) {
+            this->basic_type_ = static_cast<uint32_t>(BasicDeviceType::MOTOR);
+            this->type_ = static_cast<uint32_t>(LimxDeviceType::Abstract_JOINT);
+            this->monitor_header_.headers = { "NO_DATA" };
+            this->monitor_data_.resize(monitor_header_.headers.size());
+        }
         virtual ~LimxAbstractJoint() = default;
 
     public: //interface
@@ -23,5 +28,7 @@ namespace bitbot
         virtual void SetTargetPosition(float pos) {}
         virtual void SetTargetVelocity(float vel) {}
         virtual void SetTargetTorque(float torque) {}
+    private:
+        void UpdateRuntimeData() {}
     };
 };
