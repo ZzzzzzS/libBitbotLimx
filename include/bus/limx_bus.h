@@ -4,6 +4,7 @@
 #include "device/limx_joint.h"
 #include "device/limx_imu.h"
 #include "device/limx_LED.h"
+#include "device/limx_AbstractJoint.hpp"
 #include "limxsdk/apibase.h"
 #include "atomic"
 

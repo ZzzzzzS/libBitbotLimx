@@ -12,7 +12,8 @@ namespace bitbot
         LIMX_DEVICE = 1000,
         LIMX_JOINT,
         LIMX_IMU,
-        LIMX_LED
+        LIMX_LED,
+        Abstract_JOINT
     };
 
     class LimxDevice : public Device

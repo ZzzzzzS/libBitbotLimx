@@ -48,6 +48,10 @@ namespace bitbot
                     this->ErrorFlag.store(true);
                 }
             }
+            else if (dev->Type() == static_cast<uint32_t>(LimxDeviceType::Abstract_JOINT))
+            {
+                //do nothing
+            }
             else
             {
                 this->logger_->error("Unknown device type, check your configuration xml.");
@@ -126,6 +130,7 @@ namespace bitbot
     {
         static DeviceRegistrar<LimxDevice, LimxJoint> JointReg(static_cast<uint32_t>(LimxDeviceType::LIMX_JOINT), "LimxJoint");
         static DeviceRegistrar<LimxDevice, LimxImu> ImuReg(static_cast<uint32_t>(LimxDeviceType::LIMX_IMU), "LimxImu");
+        static DeviceRegistrar<LimxDevice, LimxAbstractJoint> AbstractJointReg(static_cast<uint32_t>(LimxDeviceType::Abstract_JOINT), "LimxAbstractJoint");
     }
 
     void LimxBus::JointStateCallback(const limxsdk::RobotStateConstPtr& state)

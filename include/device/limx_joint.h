@@ -3,6 +3,7 @@
 #include "../limxsdk/apibase.h"
 #include "../limxsdk/datatypes.h"
 #include "atomic"
+#include "limx_AbstractJoint.hpp"
 
 namespace bitbot
 {
@@ -41,7 +42,7 @@ namespace bitbot
         }
     };
 
-    class LimxJoint : public LimxDevice
+    class LimxJoint : public LimxAbstractJoint
     {
         friend class LimxBus;
     public:
