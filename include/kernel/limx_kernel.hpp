@@ -40,7 +40,7 @@ namespace bitbot
                     this->busmanager_.PowerOnDevice();
                     this->logger_->info("joints power on finished");
                     return static_cast<StateId>(LimxKernelState::POWER_ON_FINISH); }, false);
-            this->KernelRegisterState("power_on_finish", static_cast<StateId>(LimxKernelState::POWER_ON_FINISH),
+            this->KernelRegisterState("power on finish", static_cast<StateId>(LimxKernelState::POWER_ON_FINISH),
                 [this](const bitbot::KernelInterface& kernel, ExtraData& extra_data, UserData& user_data) {}, { static_cast<EventId>(KernelEvent::START) });
 
             this->InjectEventsToState(static_cast<StateId>(KernelState::IDLE), { static_cast<EventId>(LimxKernelEvent::POWER_ON) });
